@@ -1,29 +1,40 @@
-//no topo eu tenho as importações (imports)
-
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 
+export default function App() {
+  const nome = "Daniel";
 
-export default function App () {
+  const listaFrutas = ["uva", "manga", "morango"];
 
-//aqui é área lógica (js)
-  const eu = {
-    nome: 'Sérgio',
-    idade: 23,
-    altura: 1.83,
-    profissão: 'Desenvolvedor Full Stack'
-  };
+  const result = listaFrutas[2] === "morango" ? "é bom" : "é ruim";
 
   const logo = "MINHA LOGO";
 
+  const melhorFruta = "banana";
+
+  function handleClickButton() {
+    console.log("CLIQUEI NO BOTAO");
+  }
+
+  const pessoa = {
+    nome: "Sergio",
+    idade: 23,
+    profissao: "Progrmador",
+  };
+
   return (
     <div>
-      <Header logo={logo}/>
+      <Header logo={logo} melhorFruta={melhorFruta} />
       <h1>
-        Olá ReactJS {eu.nome}, tenho {eu.idade} anos, minha altura é {eu.altura}m e sou {eu.profissão}
+        Olá ReactJS {nome} - {result} - {melhorFruta} - {pessoa.nome}
       </h1>
-      <button>Clique aqui</button>
-      <Footer/>
+      <button onClick={handleClickButton}>Clique aqui</button>
+      <Footer
+        listaFrutas={listaFrutas}
+        melhorFruta={melhorFruta}
+        idade={pessoa.idade}
+        text={"Fazer Login"}
+      />
     </div>
   );
 }
